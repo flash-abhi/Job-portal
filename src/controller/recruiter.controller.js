@@ -15,7 +15,7 @@ export const addNewJob = (req,res)=>{
     const data = req.body
     console.log(data)
     add(data)
-    res.render("main")
+    res.render("main",{userEmail:req.session.userEmail ,name:req.session.name})
 }
 
 export const getLoginForm = (req,res)=>{
@@ -27,10 +27,19 @@ export const postLogin = (req,res) =>{
    const result = Recruiter.check(email,password)
     if(result){
         req.session.userEmail = email
-        
-        res.render("main")
+        req.session.name = result.name
+        res.render("main",{userEmail:req.session.userEmail ,name:req.session.name})
     }
     else{
         res.send('invalid user')
     }
+}
+export const logout=(req,res) =>{
+    req.session.destroy((err)=>{
+        if(err){
+          console.log(err)
+           return res.status(500).send("logout failed")
+        }
+        res.redirect('/login')
+    })
 }

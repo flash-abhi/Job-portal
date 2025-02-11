@@ -14,11 +14,21 @@
               <a class="nav-link fs-5" href="/jobs">Jobs</a>
             </li>
             <li class="nav-item dropdown">
+             <% if(locals.name){ %>
+                <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= locals.name %>
+                </a>
+             <% }else{ %>
               <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Recruiter
               </a>
+             <% } %>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <% if(locals.userEmail){ %>
+                  <a class="dropdown-item fs-5" href="/logout">logout</a>
+                <% }else{ %>
                 <a class="dropdown-item fs-5" href="/login">Login</a>
+                <% } %>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item fs-5" href="/new-job">Post New Job</a>
               </div>

@@ -12,10 +12,10 @@ export class UserCredentials{
         const resume = "images/"+req.file.filename
         addUser(name,email,phone,resume)
         sendConfirmationMail(email)
-        res.render("main")
+        res.render("main",{userEmail:req.session.userEmail ,name:req.session.name})
     }
     usersBoard(req,res){
-        res.render("users-board",{users:users})
+        res.render("users-board",{users:users,userEmail:req.session.userEmail ,name:req.session.name})
     }
     
 }
