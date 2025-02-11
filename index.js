@@ -8,9 +8,15 @@ import { uploadFile } from "./src/Middleware/fileUpload.middleware.js"
 import { sendConfirmationMail } from "./src/Middleware/sendMail.middleware.js"
 import validateUser from "./src/Middleware/validationUser.middleware.js"
 import { getRegistrationForm ,addNewJob ,getLoginForm ,postRegister,postLogin} from "./src/controller/recruiter.controller.js"
-
+import session from "express-session"
+import { auth } from "./src/Middleware/auth.middleware.js"
 const app = express()
-
+app.use(session({
+    secret: 'SecretKey',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {secure:false}
+}))
 const usercredentials = new UserCredentials()
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine","ejs")
@@ -27,9 +33,9 @@ app.get("/jobs",DisplayJobs)
 app.get("/jobinfo/:id",ParticularJobDetails)
 app.get("/apply",ApplyForm)
 app.post("/apply",uploadFile.single("resume"),validateUser,usercredentials.users,sendConfirmationMail)
-app.get('/new-job',postNewJob)
-app.post('/new-job',addNewJob)
-app.get("/userboard",usercredentials.usersBoard)
+app.get('/new-job',auth,postNewJob)
+app.post('/new-job',auth,addNewJob)
+app.get("/userboard",auth,usercredentials.usersBoard)
 app.post("/jobs",SearchJob)
 
 

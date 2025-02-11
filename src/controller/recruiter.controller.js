@@ -26,6 +26,8 @@ export const postLogin = (req,res) =>{
 //    console.log(req.body)
    const result = Recruiter.check(email,password)
     if(result){
+        req.session.userEmail = email
+        
         res.render("main")
     }
     else{
