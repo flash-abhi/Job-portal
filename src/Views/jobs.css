@@ -1,0 +1,76 @@
+
+.hiring-box{
+    /* border: 1px solid #198754; */
+    color: rgb(90, 89, 89);
+    border-radius: 8px;
+    padding: 4px 8px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.hiring-box i{
+    color: #198754;
+    margin-left: 10px;
+    border-left: 2px solid #198754;
+    border-bottom: 2px solid #198754;
+}
+.edit-card{
+    margin-right: 40px;
+}
+.location i{
+    margin-right: 10px;
+}
+.location {
+    font-weight: 500;
+    color: rgb(90, 89, 89);
+}
+.company{
+    color: rgb(165, 165, 5);
+}
+.Company-name{
+    font-size: 30px;
+}
+.job-role{
+    color: #0dcaf0;
+    font-weight: 400;
+}
+.package{
+    font-weight: 500;
+    color: rgb(90, 89, 89);
+}
+.skils-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:8px 8px;
+    width: 100%;
+}
+.skill{
+    /* margin-right: 10px; */
+    width: auto;
+    flex-direction: column;
+    border: 1px solid #0dcaf0;
+    border-radius: 4px;
+    padding: 2px;
+    color: #0dcaf0;
+}
+.skill:hover{
+    background-color: #0dcaf0;
+    color: #fff;
+    font-weight: 300;
+}
+.main-card{
+    width: auto;
+    height: 350px;
+}
+.view-details{
+    width: 100%;
+}
+.card-container{
+    margin-top: 50px;
+}
+/* jobinfo */
+.container-fluid > h1 > #red{
+    color: #dc3545;
+}
+.location{
+    margin-right: 5px;
+}

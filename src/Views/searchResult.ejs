@@ -1,0 +1,21 @@
+<div class="continer-fluid d-flex card-container">  
+    <% if(findedJob.length != 0){ %>
+      <div class="card edit-card main-card">
+        <div class="card-body">
+            <div class="text hiring-box"><h4>Actively Hiring <i class="fa-solid fa-arrow-trend-up"></i></h4></div>
+          <h5 class="card-title company"><%= findedJob.name %></h5>
+          <h6> Tech <span class="job-role"><%= findedJob.role %></span></h6>
+          <p class="card-text location"><i class="fa-solid fa-location-dot"></i><%=findedJob.location %></p>
+          <p class="card-text package">₹<%= findedJob.package %></p>
+          <div class="skils-container ">
+            <% findedJob.skills.forEach(skill =>{ %>
+              <div class="skill btn btn-outline-info"><%= skill %></div>
+            <% }) %>
+          </div>
+          <a href="/jobinfo/<%= findedJob.id %>" class=" btn btn-sm btn-outline-success my-2 view-details">View details</a>
+        </div>
+      </div>
+      <%}else{%>
+        <h1 style="color: red;">Oops! No products Matching your search were found</h1>
+    <%}%>
+    </div>

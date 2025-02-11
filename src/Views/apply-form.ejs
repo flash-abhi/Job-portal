@@ -1,0 +1,46 @@
+<h1 class="mb-4 mt-3"> Apply in less than 1 minute</h1>
+<% if(errorMessage){ %>
+  <div class="alert alert-danger" role="alert">
+    <% errorMessage.forEach(error =>{ %>
+    <li><%= error %></li>
+    <% }) %>
+  </div>
+<% } %>
+<form action="/apply" method="post" enctype="multipart/form-data">
+    <div class="mb-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">Name</span>
+          </div>
+          <input type="text" class="form-control" name="name" placeholder="enter your name" aria-describedby="inputGroupPrepend" >
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">Email</span>
+          </div>
+          <input type="email" class="form-control" name="email" id="validationCustomUsername" placeholder="enter your email" aria-describedby="inputGroupPrepend" >
+        </div>
+    </div>
+
+    <div class="mb-4">
+       
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend">Phone Number</span>
+            </div>
+            <input type="tel" class="form-control" name="phone" id="validationCustomUsername" placeholder="+91 _ _ _ _  _ _  _ _ _ _" aria-describedby="inputGroupPrepend" >
+          </div>
+    </div>
+    <div class="mb-4">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="resume" id="customFile" accept=
+            "application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+            text/plain, application/pdf, image/*"/>
+            <label class="custom-file-label" for="customFile">Upload Resume</label>
+          </div>
+    </div>  
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <h1 class="text-success text-center"><span id="red" class="text-danger"><%= jobFound.role %></span> Oppertunity in <%= jobFound.location %> at <span class="text-info"><%= jobFound.name %></span></h1>
+    <h5 ><%= jobFound.name %></h5>
+    <p>Tech <span class="text-success"><%= jobFound.role %></span></p>
+    <p class="location"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= jobFound.location %></p>
+    <p>₹&nbsp;<%= jobFound.package %></p>
+    <p><i class="fa-solid fa-hourglass-end"></i>&nbsp;Apply by <span><%= jobFound.Lastdate %></span></p>
+    <p><i class="fa-solid fa-door-open"></i>&nbsp;Number of openings <span><%= jobFound.openings %></span></p>
+    <p><a href="/userboard" style="text-decoration: none;" class="text-danger "><i class="fa-solid fa-users"></i>&nbsp;Applicants <span><%= users %></span></a></p>
+    <div class="skill mb-3">
+        <% jobFound.skills.forEach(skill =>{ %>
+            <div class="skill btn btn-outline-info"><%= skill %></div>
+          <% }) %>
+    </div>
+    <div class="mb-3"><a href="/apply" class="btn btn-primary">Apply Now </a></div>
+    <div class="posted-date btn btn-success mb-3">Posted: <span>1/31/2025,6:25:13 AM</span></div>
+</div>
