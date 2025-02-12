@@ -5,7 +5,9 @@
         <h2 class="animation-heading typing-text">Job Opportunities And Internship.</h2>
         <h4 class="para">Get Discovered. Get Hired.</h4>
         <a href="/jobs" type="submit" class="main-btn">I'm A Job Seeker</a>
+       <% if(!locals.name){ %>
         <a href="/register"  class="main-btn">I'm A Recruiter</a>
+        <% } %>
     </div>
     <div class="container-fluid image">
         <img src="https://i.ibb.co/XZwwFX1K/banner.png" width="100%"height="100%" alt="image">
