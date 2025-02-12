@@ -10,6 +10,8 @@ import validateUser from "./src/Middleware/validationUser.middleware.js"
 import { getRegistrationForm ,addNewJob ,getLoginForm ,postRegister,postLogin, logout} from "./src/controller/recruiter.controller.js"
 import session from "express-session"
 import { auth } from "./src/Middleware/auth.middleware.js"
+import cookieParser from "cookie-parser"
+import { setlastVisit } from "./src/Middleware/lastVisit.middleware.js"
 const app = express()
 app.use(session({
     secret: 'SecretKey',
@@ -17,6 +19,8 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure:false}
 }))
+app.use(cookieParser())
+// app.use(setlastVisit)
 const usercredentials = new UserCredentials()
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine","ejs")
@@ -24,7 +28,7 @@ app.set("views",path.join(path.resolve(),"src","Views"))
 app.use(express.static("src/Views"))
 app.use(express.static("src/public"))
 app.use(ejsLayouts)
-app.get('/',DisplayMainPage)
+app.get('/',setlastVisit,DisplayMainPage)
 app.get('/register',getRegistrationForm)
 app.post('/register',postRegister)
 app.get('/login',getLoginForm)
@@ -39,10 +43,6 @@ app.get('/new-job',auth,postNewJob)
 app.post('/new-job',auth,addNewJob)
 app.get("/userboard",auth,usercredentials.usersBoard)
 app.post("/jobs",SearchJob)
-
-
-
-
 
 
 

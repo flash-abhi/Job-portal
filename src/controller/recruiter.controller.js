@@ -42,4 +42,5 @@ export const logout=(req,res) =>{
         }
         res.redirect('/login')
     })
+    res.clearCookie('lastVisit')
 }

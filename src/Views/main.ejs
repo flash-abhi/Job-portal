@@ -12,4 +12,12 @@
     <div class="container-fluid image">
         <img src="https://i.ibb.co/XZwwFX1K/banner.png" width="100%"height="100%" alt="image">
     </div>
+   
 </div>
+<% if(locals.name){ %>
+    <% if(locals.lastVisit){ %>
+        <div class="alert alert-primary" role="alert">
+            Your lastVisit : <%= locals.lastVisit %>
+       </div>
+    <% } %>
+<% } %>
