@@ -13,15 +13,15 @@ The **Job Portal** is a web application designed to connect job seekers with pot
   - Express.js
 
 ## 🚀 Features
-- **User Authentication:**
-  - Secure login and registration for applicants and recruiters.
-- **Job Management:**
-  - Recruiters can create, update, and delete job postings.
-  - Applicants can view and apply to job listings.
-- **Profile Management:**
-  - Users can edit their profiles, including uploading resumes and profile pictures.
-- **Application Tracking:**
-  - Recruiters can shortlist, accept, or reject applications.
-  - Applicants can track the status of their applications.
+🚀 Features
+For Job Seekers:
+- ✅ Register and log in securely.
+- ✅ Browse available job listings.
+- ✅ Apply to job postings.
+- ✅ Track application status.
 
-## 📂 Project Structure
+🚀 For Employers:
+- ✅ Register and log in securely.
+- ✅ Post job listings.
+- ✅ View applicants for a job.
+- ✅ Shortlist, accept, or reject candidates.
