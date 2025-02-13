@@ -1,6 +1,11 @@
 <div class="container-fluid">
     <h1 class="text-success text-center"><span id="red" class="text-danger"><%= jobFound.role %></span> Oppertunity in <%= jobFound.location %> at <span class="text-info"><%= jobFound.name %></span></h1>
-    <h5 ><%= jobFound.name %></h5>
+    <h5 ><%= jobFound.name %> 
+        <% if(locals.name){ %>
+        <a href="/update-job/<%= jobFound.id %>" style="color: blue; text-decoration: none;" ><i class="fa-solid fa-pen-to-square"></i></a>
+        <a style="color: red; text-decoration: none;"><i class="fa-solid fa-trash"></i></a>
+        <%}%>
+    </h5>
     <p>Tech <span class="text-success"><%= jobFound.role %></span></p>
     <p class="location"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= jobFound.location %></p>
     <p>₹&nbsp;<%= jobFound.package %></p>

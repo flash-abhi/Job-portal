@@ -1,0 +1,70 @@
+
+<div class="card p-4 mt-3">
+    <h2 class="text-center text-secondary">Update the Job</h2>
+    <form action="/update-job" method="post">
+        <input type="hidden" name="id" value="<%= jobFound.id %>">
+
+        <div class="mb-3">
+            <select class="form-select" name="job_category" required>
+                <option selected disabled>select job category</option>
+                <option value="Tech" selected>Tech</option>
+                <option value="Non-Tech">Non Tech</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" name="job_designation" required>
+                <option disabled>select job designation</option>
+                <option value="HR" <%= jobFound.role === "HR" ? "selected" : "" %>>HR</option>
+                <option value="SDE" <%= jobFound.role === "SDE" ? "selected" : "" %>>SDE</option>
+                <option value="DevOps" <%= jobFound.role === "DevOps" ? "selected" : "" %>>DevOps</option>
+                <option value="MERN Developer" <%= jobFound.role === "MERN Developer" ? "selected" : "" %>>MERN Developer</option>
+                <option value="MEAN Developer" <%= jobFound.role === "MEAN Developer" ? "selected" : "" %>>MEAN Developer</option>
+                <option value="JAVA Developer" <%= jobFound.role === "JAVA Developer" ? "selected" : "" %>>JAVA Developer</option>
+                <option value="Frontend Developer" <%= jobFound.role === "Frontend Developer" ? "selected" : "" %>>Frontend Developer</option>
+                <option value="Backend Developer" <%= jobFound.role === "Backend Developer" ? "selected" : "" %>>Backend Developer</option>
+                <option value="Full Stack Developer" <%= jobFound.role === "Full Stack Developer" ? "selected" : "" %>>Full Stack Developer</option>
+            </select>
+            
+        </div>
+        <div class="mb-3">
+            <input type="text" name="job_location" class="form-control" placeholder="Enter job location" value="<%=jobFound.location%>">
+        </div>
+        <div class="mb-3">
+            <input type="text" name="company_name" value="<%=jobFound.name%>" class="form-control" placeholder="Company Name" required>
+        </div>
+        <div class="row g-2 mb-3">
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="salary"value="<%=jobFound.package%>" placeholder="Enter salary" required>
+            </div>
+            <div class="col-md-4">
+                <input type="number" class="form-control" value="<%=jobFound.openings%>" name="total-positions" placeholder="Total Positions" required>
+            </div>
+            <div class="col-md-4">
+                <input type="number" class="form-control" value="<%=jobFound.openings%>" name="openings" placeholder="Total no of openings" required>
+            </div>
+        </div>
+        <div class="row g-2 mb-3">
+            <div class="col-md-6">
+                <select class="form-select" name="skills_required" multiple required>
+                    <option disabled>select skills required for this</option>
+                    <option value="React"  <%= jobFound.skills.includes("React" )  ? "selected" : "" %>>React</option>
+                    <option value="NodeJs" <%= jobFound.skills.includes("NodeJs") ? "selected" : "" %>>NodeJs</option>
+                    <option value="Angular" <%= jobFound.skills.includes("Angular") ? "selected" : "" %>>Angular</option>
+                    <option value="MongoDB" <%= jobFound.skills.includes("MongoDB") ? "selected" : "" %>>MongoDB</option>
+                    <option value="SQL" <%= jobFound.skills.includes("SQL") ? "selected" : "" %>>SQL</option>
+                    <option value="AWS" <%= jobFound.skills.includes("AWS") ? "selected" : "" %>>AWS</option>
+                    <option value="JS" <%= jobFound.skills.includes("JS") ? "selected" : "" %>>JS</option>
+                    <option value="Express" <%= jobFound.skills.includes("Express") ? "selected" : "" %>>Express</option>
+                    <option value="Java" <%= jobFound.skills.includes("Java") ? "selected" : "" %>>Java</option>
+                    <option value="SpringBoot" <%= jobFound.skills.includes("SpringBoot") ? "selected" : "" %>>SpringBoot</option>
+                    <option value="C++" <%= jobFound.skills.includes("C++") ? "selected" : "" %>>C++</option>
+                    <option value="Data Structures" <%= jobFound.skills.includes("Data Structures") ? "selected" : "" %>>Data Structures & Algo</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <input type="date" class="form-control" name="apply_by" value="<%= jobFound.Lastdate ? jobFound.Lastdate : '' %>" required>
+            </div>
+        </div>
+        <button  type="submit" class="btn btn-success w-100">Submit</button>
+    </form>
+</div>

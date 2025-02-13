@@ -1,7 +1,7 @@
 import express from "express"
 import path from "path"
 import ejsLayouts from "express-ejs-layouts"
-import {DisplayMainPage, SearchJob} from "./src/controller/main.controller.js"
+import {DisplayMainPage, SearchJob,updateJob,postUpdateJob} from "./src/controller/main.controller.js"
 import {UserCredentials} from "./src/controller/user.controller.js"
 import {DisplayJobs,ParticularJobDetails,ApplyForm,postNewJob} from "./src/controller/main.controller.js"
 import { uploadFile } from "./src/Middleware/fileUpload.middleware.js"
@@ -41,6 +41,8 @@ app.get("/apply",ApplyForm)
 app.post("/apply",uploadFile.single("resume"),validateUser,usercredentials.users,sendConfirmationMail)
 app.get('/new-job',auth,postNewJob)
 app.post('/new-job',auth,addNewJob)
+app.get("/update-job/:id",updateJob)
+app.post("/update-job",postUpdateJob)
 app.get("/userboard",auth,usercredentials.usersBoard)
 app.post("/jobs",SearchJob)
 

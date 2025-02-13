@@ -1,4 +1,4 @@
-import { getJobs,getJobById ,search} from "../Model/jobs.model.js"
+import { getJobs,getJobById ,search ,update} from "../Model/jobs.model.js"
 import { users } from "../Model/users.model.js"
 
 export const DisplayMainPage = (req,res)=>{
@@ -39,4 +39,29 @@ export const SearchJob= (req,res) =>{
     else{
         res.render("error-page")
     }
+}
+
+export const updateJob = (req,res)=>{
+    // if job exist then return view
+    const {id} = req.params
+    // console.log(id)
+    const jobFound = getJobById(id)
+    // console.log(jobFound)
+    if(jobFound){
+        res.render("update-job",{jobFound:jobFound})
+    }
+    // else return error
+    else{
+        res.status(401).send("Product not found")
+    }
+}
+export const postUpdateJob = (req,res)=>{
+    const data = req.body
+    console.log(data);
+    data.id = Number(data.id); // Convert ID to number
+
+    console.log("Updating Job ID:", data.id);
+    update(data)
+    const jobs = getJobs()
+    res.redirect("/jobs");
 }

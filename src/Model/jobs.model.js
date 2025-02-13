@@ -27,7 +27,24 @@ export const add = (data)=>{
         skills: data.skills_required,
     })
 }
+export const update = (data) => {
+    const jobId = Number(data.id); // Convert ID to number
+    const index = jobs.findIndex(j => j.id === jobId);
+    if (index !== -1) { // Ensure the job exists before updating
+        jobs[index].name = data.company_name;
+        jobs[index].role = data.job_designation;
+        jobs[index].category = data.job_category;
+        jobs[index].location = data.job_location;
+        jobs[index].package = data.salary;
+        jobs[index].openings = data.openings;
+        jobs[index].Lastdate = data.apply_by;
+        jobs[index].skills = data.skills_required;
 
+        // console.log("Updated job:", jobs[index]);
+    } else {
+        console.log("Job not found with ID:", data.id);
+    } 
+};
 const jobs = [
     {
     id:1,
