@@ -1,7 +1,7 @@
 import express from "express"
 import path from "path"
 import ejsLayouts from "express-ejs-layouts"
-import {DisplayMainPage, SearchJob,updateJob,postUpdateJob} from "./src/controller/main.controller.js"
+import {DisplayMainPage, SearchJob,updateJob,postUpdateJob,deleteJob} from "./src/controller/main.controller.js"
 import {UserCredentials} from "./src/controller/user.controller.js"
 import {DisplayJobs,ParticularJobDetails,ApplyForm,postNewJob} from "./src/controller/main.controller.js"
 import { uploadFile } from "./src/Middleware/fileUpload.middleware.js"
@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine","ejs")
 app.set("views",path.join(path.resolve(),"src","Views"))
 app.use(express.static("src/Views"))
-app.use(express.static("src/public"))
+app.use(express.static(path.join(path.resolve(), "src", "public")));
 app.use(ejsLayouts)
 app.get('/',setlastVisit,DisplayMainPage)
 app.get('/register',getRegistrationForm)
@@ -43,6 +43,7 @@ app.get('/new-job',auth,postNewJob)
 app.post('/new-job',auth,addNewJob)
 app.get("/update-job/:id",updateJob)
 app.post("/update-job",postUpdateJob)
+app.delete("/delete-job/:id",deleteJob)
 app.get("/userboard",auth,usercredentials.usersBoard)
 app.post("/jobs",SearchJob)
 

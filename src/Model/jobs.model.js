@@ -1,3 +1,4 @@
+import exp from "constants"
 
 const date = new Date()
 export const getJobs = ()=>{
@@ -26,6 +27,10 @@ export const add = (data)=>{
         Postdate: new Date(date),
         skills: data.skills_required,
     })
+}
+export const Delete = (id)=>{
+    const index = jobs.findIndex(j => j.id == id)
+    jobs.splice(index,1)
 }
 export const update = (data) => {
     const jobId = Number(data.id); // Convert ID to number

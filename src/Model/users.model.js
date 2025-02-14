@@ -5,7 +5,14 @@ export const users=[
         name: "ayush",
         email: "xyz1234@gmail.com",
         phone: 9817837484,
-        resume: "images/abc.png"
+        resume: "images/resume1.jpg"
+    },
+    {
+        userId: 2,
+        name: "abhishek",
+        email: "abc2345@gmail.com",
+        phone: 8818837485,
+        resume: "images/resume1.jpg"
     }
 ]
 

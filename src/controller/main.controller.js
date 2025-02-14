@@ -1,4 +1,4 @@
-import { getJobs,getJobById ,search ,update} from "../Model/jobs.model.js"
+import { getJobs,getJobById ,search ,update,Delete} from "../Model/jobs.model.js"
 import { users } from "../Model/users.model.js"
 
 export const DisplayMainPage = (req,res)=>{
@@ -64,4 +64,15 @@ export const postUpdateJob = (req,res)=>{
     update(data)
     const jobs = getJobs()
     res.redirect("/jobs");
+}
+
+export const deleteJob = (req,res)=>{
+    const id = Number(req.params.id)
+    // console.log(req.params)
+    const jobFound = getJobById(id)
+    if(!jobFound){
+        res.status(404).send("job not found")
+    }
+    Delete(id)
+    res.redirect("/jobs")
 }
