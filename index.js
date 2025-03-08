@@ -1,3 +1,4 @@
+
 import express from "express"
 import path from "path"
 import ejsLayouts from "express-ejs-layouts"
@@ -46,9 +47,6 @@ app.post("/update-job",postUpdateJob)
 app.delete("/delete-job/:id",deleteJob)
 app.get("/userboard",auth,usercredentials.usersBoard)
 app.post("/jobs",SearchJob)
-
-
-
 
 
 
