@@ -48,7 +48,7 @@ app.delete("/delete-job/:id",deleteJob)
 app.get("/userboard",auth,usercredentials.usersBoard)
 app.post("/jobs",SearchJob)
 
-
-
-
+app.listen(3200, () => {
+  console.log("listen on port 3200");
+});
 export default app;
