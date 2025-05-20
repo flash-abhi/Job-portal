@@ -118,5 +118,9 @@ a{
     .main-btn{
         font-size: 28px;
     }
+        .container {
+            height: 100%;
+            width: 100%;
+        }
        
 }
